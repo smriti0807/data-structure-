@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct nodetype{
+    int data;
+    struct nodetype* next;
+}node;
+void insertAtbeg(node** head,int data){
+    node* ptr;
+    ptr=(node*)malloc(sizeof(node));
+    ptr->data=data;
+    ptr->next=*head;
+    *head = ptr;
+}
+void Display(node* head){
+    if(head == NULL){
+        printf("list is epty");
+    }
+    else{
+          while(head != NULL){
+        printf("%d",head->data);
+        head =  head->next;
+    }
+    }
+    
+}
+int main() {
+    // Write C code here
+    node *head=NULL;
+    insertAtbeg(&head,7);
+     insertAtbeg(&head,8);
+     insertAtbeg(&head,9);
+     printf("print the list: ");
+     Display(head);
+    
+    return 0;
+}
